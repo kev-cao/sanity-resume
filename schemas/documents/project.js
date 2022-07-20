@@ -24,6 +24,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Image Preview",
+      name: "preview",
+      type: "image",
+      validation: (Rule) =>
+        Rule.custom(
+          (img, context) =>
+            !context.document.highlight ||
+            !!img ||
+            "All highlighted projects must have a preview image."
+        ),
+    },
+    {
       title: "Show in Resume",
       name: "resume",
       type: "boolean",
@@ -59,6 +71,13 @@ export default {
       name: "bullets",
       type: "array",
       of: [{ type: "string" }],
+    },
+    {
+      title: "Technologies",
+      name: "technologies",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.max(6),
     },
   ],
 };
