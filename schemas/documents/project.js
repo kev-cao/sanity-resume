@@ -24,6 +24,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Description",
+      name: "description",
+      type: "string",
+      validation: (Rule) =>
+        Rule.custom(
+          (desc, context) =>
+            !context.document.highlight ||
+            !!desc ||
+            "All highlighted projects must have a description."
+        ),
+    },
+    {
       title: "Image Preview",
       name: "preview",
       type: "image",
