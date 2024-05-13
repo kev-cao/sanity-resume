@@ -46,10 +46,20 @@ export default {
         ),
     },
     {
-      title: "Bullets",
-      name: "bullets",
+      title: "Details",
+      name: "details",
       type: "array",
       of: [{ type: "string" }],
+    },
+    {
+      title: "Highlight Job",
+      name: "highlight",
+      type: "boolean",
+      description: "Show this job in the front page resume.",
+      initialValue: false,
+      options: {
+        layout: "checkbox",
+      },
     },
   ],
 };
